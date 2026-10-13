@@ -2,91 +2,517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Science ePortfolio | Lisa Ulrick</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f4f0;
-            color: #333333;
-            margin: 0;
-            line-height: 1.7;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lisa Ulrick's Computer Science ePortfolio at Southern New Hampshire University.">
+  <title>Lisa Ulrick | Computer Science ePortfolio</title>
+  <style>
+    :root {
+      --cream: #f8f6f0;
+      --paper: #fffefa;
+      --forest: #304a3b;
+      --forest-dark: #21392d;
+      --sage: #dce6d9;
+      --sage-text: #526b55;
+      --clay: #bd8064;
+      --ink: #29342e;
+      --muted: #68746b;
+      --line: #e7e6dd;
+      --shadow: 0 18px 45px rgba(44,61,46,.07);
+    }
 
-        header {
-            background-color: #34483d;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        main {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
 
-        section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-        }
+    a { color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--clay);
+      outline-offset: 4px;
+    }
 
-        h2 {
-            color: #34483d;
-        }
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #666666;
-        }
-    </style>
+    .site-header {
+      background: rgba(248,246,240,.96);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+      min-height: 78px;
+      padding: 12px 0;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 1.13rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--forest);
+    }
+
+    .brand span { color: var(--clay); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--forest);
+      font-size: .92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--clay); }
+
+    .hero {
+      padding: 105px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: #e9eee4;
+      right: -150px;
+      top: 15px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sage-text);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(2.9rem, 7vw, 5.4rem);
+      line-height: 1.08;
+      letter-spacing: -.06em;
+      color: var(--forest);
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--clay);
+    }
+
+    .hero p {
+      max-width: 630px;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .93rem;
+      text-decoration: none;
+      border: 1px solid var(--forest);
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      background: var(--forest);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: var(--forest-dark);
+    }
+
+    .button-outline {
+      color: var(--forest);
+      background: transparent;
+    }
+
+    .section {
+      padding: 72px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading { margin-bottom: 30px; }
+
+    .section-heading h2 {
+      color: var(--forest);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      letter-spacing: -.045em;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 660px;
+    }
+
+    .about-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: clamp(26px, 5vw, 52px);
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .about-aside {
+      border-left: 3px solid var(--clay);
+      padding: 16px 0 16px 24px;
+    }
+
+    .about-aside strong {
+      display: block;
+      color: var(--forest);
+      font-size: 1.05rem;
+      margin-bottom: 7px;
+    }
+
+    .about-aside span {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill {
+      padding: 9px 15px;
+      border-radius: 100px;
+      background: var(--sage);
+      color: var(--forest);
+      font-size: .91rem;
+      font-weight: 650;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      background: var(--sage);
+      color: var(--forest);
+      border-radius: 12px;
+      font-size: 1.4rem;
+      margin-bottom: 22px;
+    }
+
+    .status {
+      align-self: flex-start;
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #805b45;
+      background: #f5e7db;
+      padding: 5px 10px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+    }
+
+    .project-card h3 {
+      color: var(--forest);
+      font-size: 1.22rem;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 0;
+    }
+
+    .journey {
+      background: #e9eee6;
+      border-top: 1px solid #dbe4d8;
+      border-bottom: 1px solid #dbe4d8;
+    }
+
+    .journey p {
+      max-width: 790px;
+      color: #526154;
+    }
+
+    .footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--forest);
+      font-weight: 700;
+    }
+
+    @media (max-width: 780px) {
+      .hero { padding: 72px 0; }
+      .about-panel {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .projects { grid-template-columns: 1fr; }
+      .section { padding: 54px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Lisa Ulrick</h1>
-        <p>Computer Science ePortfolio</p>
-        <p>Southern New Hampshire University</p>
-    </header>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">Lisa Ulrick<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">My Journey</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section>
-            <h2>Welcome</h2>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">
+          Southern New Hampshire University · CS 499
+        </span>
+
+        <h1>
+          Hi, I'm Lisa.<br>
+          <em>Welcome to my portfolio.</em>
+        </h1>
+
+        <p>
+          A Computer Science ePortfolio showcasing my learning,
+          projects, and growth in software engineering,
+          algorithms, and databases.
+        </p>
+
+        <div class="actions">
+          <a class="button button-primary" href="#projects">
+            Explore My Projects →
+          </a>
+          <a class="button button-outline" href="#about">
+            More About Me
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">01 / Introduction</span>
+          <h2>A little about me</h2>
+        </div>
+
+        <div class="about-panel">
+          <div>
             <p>
-                Welcome to my Computer Science ePortfolio.
-                This website will showcase my academic projects,
-                technical skills, and professional growth throughout
-                my Computer Science program at Southern New
-                Hampshire University.
+              I began my studies at Southern New Hampshire
+              University in August 2023 and have continued
+              taking courses through the summers. My Computer
+              Science program has introduced me to many areas
+              of technology, and I enjoy discovering new topics
+              and exploring how things work. I'm still exploring
+              where I want to specialize, and this portfolio
+              reflects the skills and interests I've developed
+              along the way.
             </p>
-        </section>
+          </div>
 
-        <section>
-            <h2>About This Portfolio</h2>
+          <div class="about-aside">
+            <strong>Curious by nature. Always learning.</strong>
+            <span>
+              Exploring software development, problem-solving,
+              and the many possibilities within computer science.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">02 / Technical toolkit</span>
+          <h2>Technologies I've worked with</h2>
+          <p>
+            Tools and technologies I've encountered through
+            my coursework and projects.
+          </p>
+        </div>
+
+        <div class="skills" aria-label="Technical skills">
+          <span class="skill">JavaScript</span>
+          <span class="skill">HTML &amp; CSS</span>
+          <span class="skill">Angular</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Express</span>
+          <span class="skill">MongoDB</span>
+          <span class="skill">REST APIs</span>
+          <span class="skill">Git &amp; GitHub</span>
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">03 / Capstone work</span>
+          <h2>Featured project enhancements</h2>
+          <p>
+            My CS 499 capstone will build on my Travlr
+            full-stack application. As I complete each
+            enhancement, I'll add the code, explanation,
+            and supporting materials here.
+          </p>
+        </div>
+
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">⌘</div>
+            <span class="status">Planned enhancement</span>
+            <h3>Software Engineering &amp; Design</h3>
             <p>
-                As part of my CS 499 Computer Science Capstone,
-                I will use this portfolio to demonstrate my
-                knowledge and skills in software engineering
-                and design, algorithms and data structures,
-                and databases.
+              Improving the structure, reliability, and
+              user experience of the Travlr application.
             </p>
-        </section>
+          </article>
 
-        <section>
-            <h2>Capstone Projects</h2>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">↗</div>
+            <span class="status">Planned enhancement</span>
+            <h3>Algorithms &amp; Data Structures</h3>
             <p>
-                My original and enhanced projects, code review,
-                and enhancement narratives will be added here
-                as I progress through the course.
+              Exploring better ways to search, organize,
+              and process trip information.
             </p>
-        </section>
-    </main>
+          </article>
 
-    <footer>
-        <p>CS 499 | Computer Science Capstone</p>
-    </footer>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">▤</div>
+            <span class="status">Planned enhancement</span>
+            <h3>Databases</h3>
+            <p>
+              Strengthening how the application stores,
+              validates, and retrieves trip data.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section journey" id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">04 / Looking ahead</span>
+          <h2>My learning journey</h2>
+        </div>
+
+        <p>
+          This portfolio is a work in progress. Throughout
+          CS 499, I'll add my code review, enhanced artifacts,
+          written narratives, and professional self-assessment.
+          My goal is to show not just what I've built, but what
+          I've learned and how my skills have grown.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>
+        © 2026 Lisa Ulrick · Computer Science ePortfolio
+      </span>
+      <a href="https://github.com/LisaUlrick20"
+         target="_blank" rel="noopener noreferrer">
+        View my GitHub ↗
+      </a>
+    </div>
+  </footer>
 </body>
 </html>

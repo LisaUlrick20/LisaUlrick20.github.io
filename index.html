@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Science ePortfolio | Lisa Ulrick</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f4f0;
@@ -21,8 +30,35 @@
             padding: 60px 20px;
         }
 
+        header h1 {
+            margin-bottom: 5px;
+        }
+
+        header p {
+            margin: 5px 0;
+        }
+
+        nav {
+            background-color: #e4e8df;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #34483d;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 12px;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         main {
-            max-width: 850px;
+            max-width: 950px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -32,9 +68,62 @@
             padding: 30px;
             margin-bottom: 25px;
             border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         h2 {
+            color: #34483d;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #526c59;
+            margin-top: 25px;
+        }
+
+        .project-label {
+            color: #777777;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .resource-box {
+            background-color: #f5f4f0;
+            padding: 18px;
+            margin: 15px 0;
+            border-left: 4px solid #839785;
+            border-radius: 5px;
+        }
+
+        .resource-box h3 {
+            margin-top: 0;
+        }
+
+        .placeholder {
+            color: #777777;
+            font-style: italic;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #e4e8df;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        a {
             color: #34483d;
         }
 
@@ -43,50 +132,338 @@
             padding: 25px;
             color: #666666;
         }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 40px 15px;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
     </style>
 </head>
+
 <body>
+
     <header>
         <h1>Lisa Ulrick</h1>
         <p>Computer Science ePortfolio</p>
         <p>Southern New Hampshire University</p>
     </header>
 
+    <nav aria-label="Main navigation">
+        <a href="#welcome">Welcome</a>
+        <a href="#about">About</a>
+        <a href="#self-assessment">Self-Assessment</a>
+        <a href="#code-review">Code Review</a>
+        <a href="#enhancement-one">Enhancement One</a>
+        <a href="#enhancement-two">Enhancement Two</a>
+        <a href="#enhancement-three">Enhancement Three</a>
+    </nav>
+
     <main>
-        <section>
+
+        <!-- WELCOME -->
+
+        <section id="welcome">
             <h2>Welcome</h2>
+
             <p>
                 Welcome to my Computer Science ePortfolio.
-                This website will showcase my academic projects,
-                technical skills, and professional growth throughout
-                my Computer Science program at Southern New
-                Hampshire University.
+                This website showcases my academic projects,
+                technical skills, and professional growth
+                throughout my Computer Science program at
+                Southern New Hampshire University.
             </p>
         </section>
 
-        <section>
+        <!-- ABOUT -->
+
+        <section id="about">
             <h2>About This Portfolio</h2>
+
             <p>
                 As part of my CS 499 Computer Science Capstone,
-                I will use this portfolio to demonstrate my
-                knowledge and skills in software engineering
+                this portfolio demonstrates my knowledge and
+                skills in software engineering and design,
+                algorithms and data structures, and databases.
+            </p>
+
+            <p>
+                I selected three projects from previous courses
+                to review, improve, and include in my portfolio.
+                Each enhancement demonstrates how I can apply
+                what I have learned throughout my program
+                to improve existing software.
+            </p>
+        </section>
+
+        <!-- PROFESSIONAL SELF-ASSESSMENT -->
+
+        <section id="self-assessment">
+            <h2>Professional Self-Assessment</h2>
+
+            <p>
+                This section will include my professional
+                self-assessment, reflecting on my growth
+                throughout the Computer Science program,
+                the skills I have developed, and how
+                my coursework has prepared me for
+                future opportunities.
+            </p>
+
+            <p class="placeholder">
+                Professional self-assessment will be added
+                as part of the final capstone submission.
+            </p>
+        </section>
+
+        <!-- CODE REVIEW -->
+
+        <section id="code-review">
+            <h2>Capstone Code Review</h2>
+
+            <p>
+                For my CS 499 capstone, I completed a code
+                review covering three projects from previous
+                courses. During the review, I examined
+                the existing code, discussed areas that
+                could be improved, and explained my
+                planned enhancements.
+            </p>
+
+            <p>
+                The video covers software engineering
                 and design, algorithms and data structures,
                 and databases.
             </p>
+
+            <div class="resource-box">
+                <h3>Code Review Video</h3>
+
+                <p class="placeholder">
+                    My completed code review video will
+                    be embedded here.
+                </p>
+
+                <!--
+                When the video is uploaded to YouTube,
+                replace this placeholder with:
+
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID"
+                        title="CS 499 Capstone Code Review"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                -->
+            </div>
         </section>
 
-        <section>
-            <h2>Capstone Projects</h2>
-            <p>
-                My original and enhanced projects, code review,
-                and enhancement narratives will be added here
-                as I progress through the course.
+        <!-- ENHANCEMENT ONE -->
+
+        <section id="enhancement-one">
+            <p class="project-label">
+                CS 465 | Full Stack Development
             </p>
+
+            <h2>Enhancement One: Software Engineering and Design</h2>
+
+            <h3>Travlr Getaways</h3>
+
+            <p>
+                Travlr Getaways is a full-stack travel
+                application developed using the MEAN
+                stack, which includes MongoDB, Express,
+                Angular, and Node.js.
+            </p>
+
+            <p>
+                For this enhancement, I will focus on
+                improving the organization, functionality,
+                reliability, and maintainability of
+                the existing application.
+            </p>
+
+            <div class="resource-box">
+                <h3>Original Code</h3>
+                <p class="placeholder">
+                    Link to original Travlr Getaways code.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Enhanced Code</h3>
+                <p class="placeholder">
+                    Link to enhanced Travlr Getaways code.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Enhancement Narrative</h3>
+                <p class="placeholder">
+                    Enhancement One narrative will be added here.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Pseudocode and Flowchart</h3>
+                <p class="placeholder">
+                    Supporting pseudocode and flowchart
+                    will be added here.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Screenshots and Testing</h3>
+                <p class="placeholder">
+                    Screenshots and testing results
+                    will be added here.
+                </p>
+            </div>
         </section>
+
+        <!-- ENHANCEMENT TWO -->
+
+        <section id="enhancement-two">
+            <p class="project-label">
+                CS 250 | Software Development Lifecycle
+            </p>
+
+            <h2>Enhancement Two: Algorithms and Data Structures</h2>
+
+            <h3>Top 5 Destinations Java Slideshow</h3>
+
+            <p>
+                This project is a Java Swing application
+                that displays a slideshow of five travel
+                destinations. Users can navigate through
+                the slideshow using the Next and Previous
+                buttons.
+            </p>
+
+            <p>
+                For this enhancement, I will focus on
+                improving how the application organizes
+                and processes its data, along with
+                the logic used to navigate through
+                the destinations.
+            </p>
+
+            <div class="resource-box">
+                <h3>Original Code</h3>
+                <p class="placeholder">
+                    Link to original Java slideshow code.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Enhanced Code</h3>
+                <p class="placeholder">
+                    Link to enhanced Java slideshow code.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Enhancement Narrative</h3>
+                <p class="placeholder">
+                    Enhancement Two narrative will be added here.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Pseudocode and Flowchart</h3>
+                <p class="placeholder">
+                    Supporting pseudocode and flowchart
+                    will be added here.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Screenshots and Testing</h3>
+                <p class="placeholder">
+                    Screenshots and testing results
+                    will be added here.
+                </p>
+            </div>
+        </section>
+
+        <!-- ENHANCEMENT THREE -->
+
+        <section id="enhancement-three">
+            <p class="project-label">
+                CS 360 | Mobile Architecture and Programming
+            </p>
+
+            <h2>Enhancement Three: Databases</h2>
+
+            <h3>Android Inventory App</h3>
+
+            <p>
+                The Android Inventory App is a mobile
+                application that allows users to create
+                an account, log in, and manage inventory
+                items stored in a local database.
+            </p>
+
+            <p>
+                For this enhancement, I will focus on
+                improving database functionality,
+                data management, validation, and
+                the reliability of inventory operations.
+            </p>
+
+            <div class="resource-box">
+                <h3>Original Code</h3>
+                <p class="placeholder">
+                    Link to original Android Inventory App code.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Enhanced Code</h3>
+                <p class="placeholder">
+                    Link to enhanced Android Inventory App code.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Enhancement Narrative</h3>
+                <p class="placeholder">
+                    Enhancement Three narrative will be added here.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Pseudocode and Flowchart</h3>
+                <p class="placeholder">
+                    Supporting pseudocode and flowchart
+                    will be added here.
+                </p>
+            </div>
+
+            <div class="resource-box">
+                <h3>Screenshots and Testing</h3>
+                <p class="placeholder">
+                    Screenshots and testing results
+                    will be added here.
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <p>CS 499 | Computer Science Capstone</p>
+        <p>Southern New Hampshire University</p>
     </footer>
+
 </body>
 </html>
